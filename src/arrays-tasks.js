@@ -39,6 +39,11 @@ function getIntervalArray(/* start, end */) {
  */
 function sumArrays(/* arr1, arr2 */) {
   throw new Error('Not implemented');
+  // throw new Error('Not implemented');
+  // const RESULT = arr1.map((el, index) => {
+  //   return el + arr2[index];
+  // });
+  // return RESULT;
 }
 
 /**
@@ -134,8 +139,14 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const COUNT = arr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
+  return +(COUNT / arr.length).toFixed(2);
 }
 
 /**
@@ -148,8 +159,9 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const LENGTH = arr[0].length;
+  return arr.every((el) => el.length === LENGTH);
 }
 
 /**
@@ -163,8 +175,8 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  return arr.some((el, index) => el === index);
 }
 
 /**
@@ -193,8 +205,8 @@ function insertItem(arr, item, index) {
  *    getHead([ 'a', 'b', 'c', 'd'], 3) => [ 'a', 'b', 'c' ]
  *    getHead([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  return arr.slice(0, n);
 }
 
 /**
