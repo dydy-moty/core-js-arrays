@@ -37,13 +37,15 @@ function getIntervalArray(/* start, end */) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
-  // throw new Error('Not implemented');
-  // const RESULT = arr1.map((el, index) => {
-  //   return el + arr2[index];
-  // });
-  // return RESULT;
+function sumArrays(arr1, arr2) {
+  if (arr1.length === 0) return arr2;
+  if (arr2.length === 0) return arr1;
+  const ARR3 = arr2.map((value, index) => {
+    const a = value === undefined ? 0 : value;
+    const b = arr1[index] === undefined ? 0 : arr1[index];
+    return a + b;
+  });
+  return ARR3;
 }
 
 /**
@@ -458,6 +460,7 @@ function getIndicesOfOddNumbers(/* numbers */) {
  */
 function getHexRGBValues(/* arr */) {
   throw new Error('Not implemented');
+  // Number(number).toString(16)
 }
 
 /**
