@@ -302,8 +302,8 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
-  throw new Error('Not implemented');
+function flattenArray(nestedArray) {
+  return nestedArray.flat(Infinity);
 }
 
 /**
@@ -386,6 +386,7 @@ function generateOdds(len) {
  */
 function getElementByIndices(/* arr, indices */) {
   throw new Error('Not implemented');
+  // return indices.map(el => el = new Array(el));
 }
 
 /**
@@ -444,8 +445,15 @@ function getIdentityMatrix(/* n */) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const N = [];
+  numbers.map((el, index) => {
+    if (el % 2 !== 0) {
+      N.push(index);
+    }
+    return false;
+  });
+  return N;
 }
 
 /**
