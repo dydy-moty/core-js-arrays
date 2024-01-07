@@ -354,6 +354,11 @@ function calculateBalance(/* arr */) {
  */
 function createChunks(/* arr, chunkSize */) {
   throw new Error('Not implemented');
+  // const RESULT_ARR = [];
+  // arr.map((el, index) => {
+  //   return RESULT_ARR.push(arr.slice(index, index + chunkSize));
+  // });
+  // return RESULT_ARR;
 }
 
 /**
@@ -466,9 +471,11 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
-  // Number(number).toString(16)
+function getHexRGBValues(arr) {
+  return arr.map((el) => {
+    const STR = Number(el).toString(16).padStart(6, 0).toUpperCase();
+    return `#${STR}`;
+  });
 }
 
 /**
