@@ -497,8 +497,9 @@ function getHexRGBValues(arr) {
  *   getMaxItems([ 10, 2, 7, 5, 3, -5 ], 3) => [ 10, 7, 5 ]
  *   getMaxItems([ 10, 10, 10, 10 ], 3) => [ 10, 10, 10 ]
  */
-function getMaxItems(/* arr, n */) {
-  throw new Error('Not implemented');
+function getMaxItems(arr, n) {
+  const newArr = arr.sort((a, b) => b - a);
+  return newArr.splice(0, n);
 }
 
 /**
@@ -513,8 +514,15 @@ function getMaxItems(/* arr, n */) {
  *    findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd']) => [ 'b', 'c' ]
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
-function findCommonElements(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function findCommonElements(arr1, arr2) {
+  const ARR = [];
+  arr1.filter((elem) => {
+    if (arr2.includes(elem)) {
+      ARR.push(elem);
+    }
+    return ARR;
+  });
+  return ARR;
 }
 
 /**
@@ -563,8 +571,18 @@ function propagateItemsByPositionIndex(/* arr */) {
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  // throw new Error('Not implemented');
+  const NEW_ARR = arr;
+  let FIN_ARR = [];
+  if (n < 0) {
+    const HEAD_ARR = NEW_ARR.splice(0, Math.abs(n));
+    FIN_ARR = NEW_ARR.concat(HEAD_ARR);
+  } else {
+    const HEAD_ARR = NEW_ARR.splice(n + 1);
+    FIN_ARR = HEAD_ARR.concat(NEW_ARR);
+  }
+  return FIN_ARR;
 }
 
 /**
